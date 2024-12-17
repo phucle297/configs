@@ -23,7 +23,7 @@ Then add this to your shell config (~/.bashrc, ~/.zshrc, ...):
 ```
 export PATH="$PATH:/opt/nvim-linux64/bin"
 ```
-
+Then, install some require libs
 ```
 sudo apt-get install ripgrep 
 ```
