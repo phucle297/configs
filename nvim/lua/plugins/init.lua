@@ -22,6 +22,7 @@ return {
       require "configs.lspconfig"
     end,
   },
+  {},
   {
     "rachartier/tiny-inline-diagnostic.nvim",
     event = "LspAttach",
@@ -217,20 +218,6 @@ return {
   },
   -- others
   {
-    "dense-analysis/ale",
-    config = function()
-      -- Configuration goes here.
-      local g = vim.g
-
-      g.ale_ruby_rubocop_auto_correct_all = 1
-
-      g.ale_linters = {
-        ruby = { "rubocop", "ruby" },
-        lua = { "lua_language_server" },
-      }
-    end,
-  },
-  {
     "gen740/SmoothCursor.nvim",
     event = "BufEnter",
     config = function()
@@ -270,48 +257,49 @@ return {
       },
     },
   },
-  -- {
-  --   "sphamba/smear-cursor.nvim",
-  --   lazy = false,
-  --   opts = {
-  --     -- Cursor color. Defaults to Cursor gui color
-  --     cursor_color = "#d3cdc3",
-  --
-  --     -- Background color. Defaults to Normal gui background color
-  --     normal_bg = "#d3cdc3",
-  --
-  --     -- Smear cursor when switching buffers
-  --     smear_between_buffers = true,
-  --
-  --     -- Smear cursor when moving within line or to neighbor lines
-  --     smear_between_neighbor_lines = true,
-  --
-  --     -- Use floating windows to display smears outside buffers.
-  --     -- May have performance issues with other plugins.
-  --     use_floating_windows = true,
-  --
-  --     -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
-  --     -- Smears will blend better on all backgrounds.
-  --     -- legacy_computing_symbols_support = true,
-  --     -- How fast the smear's head moves towards the target.
-  --     -- 0: no movement, 1: instantaneous, default: 0.6
-  --     stiffness = 0.8,
-  --
-  --     -- How fast the smear's tail moves towards the head.
-  --     -- 0: no movement, 1: instantaneous, default: 0.3
-  --     trailing_stiffness = 0.5,
-  --
-  --     -- How much the tail slows down when getting close to the head.
-  --     -- 0: no slowdown, more: more slowdown, default: 0.1
-  --     trailing_exponent = 0.1,
-  --
-  --     -- Stop animating when the smear's tail is within this distance (in characters) from the target.
-  --     -- Default: 0.1
-  --     distance_stop_animating = 0.05,
-  --
-  --     -- Attempt to hide the real cursor when smearing.
-  --     -- Default: true
-  --     hide_target_hack = true,
-  --   },
-  -- },
+  {
+    "sphamba/smear-cursor.nvim",
+    enabled = false,
+    lazy = false,
+    opts = {
+      -- Cursor color. Defaults to Cursor gui color
+      cursor_color = "#d3cdc3",
+
+      -- Background color. Defaults to Normal gui background color
+      normal_bg = "#d3cdc3",
+
+      -- Smear cursor when switching buffers
+      smear_between_buffers = true,
+
+      -- Smear cursor when moving within line or to neighbor lines
+      smear_between_neighbor_lines = true,
+
+      -- Use floating windows to display smears outside buffers.
+      -- May have performance issues with other plugins.
+      use_floating_windows = true,
+
+      -- Set to `true` if your font supports legacy computing symbols (block unicode symbols).
+      -- Smears will blend better on all backgrounds.
+      -- legacy_computing_symbols_support = true,
+      -- How fast the smear's head moves towards the target.
+      -- 0: no movement, 1: instantaneous, default: 0.6
+      stiffness = 0.8,
+
+      -- How fast the smear's tail moves towards the head.
+      -- 0: no movement, 1: instantaneous, default: 0.3
+      trailing_stiffness = 0.5,
+
+      -- How much the tail slows down when getting close to the head.
+      -- 0: no slowdown, more: more slowdown, default: 0.1
+      trailing_exponent = 0.1,
+
+      -- Stop animating when the smear's tail is within this distance (in characters) from the target.
+      -- Default: 0.1
+      distance_stop_animating = 0.05,
+
+      -- Attempt to hide the real cursor when smearing.
+      -- Default: true
+      hide_target_hack = true,
+    },
+  },
 }

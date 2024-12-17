@@ -22,7 +22,7 @@ local options = {
     css = { "prettierd", "prettier" },
     scss = { "prettierd", "prettier" },
     fish = { "fish_indent" },
-    sql = { "sqlfluff" },
+    -- sql = { "sqlfluff" },
   },
   format_on_save = {
     -- These options will be passed to conform.format()

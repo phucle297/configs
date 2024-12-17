@@ -10,7 +10,7 @@ return function()
     -- yaml = { "yamllint" },
     css = { "stylelint" },
     scss = { "stylelint" },
-    sql = { "sqlfluff" },
+    -- sql = { "sqlfluff" },
     terraform = { "tflint" },
     markdown = { "markdownlint", "vale" },
   }
