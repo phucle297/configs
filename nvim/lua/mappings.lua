@@ -17,20 +17,20 @@ map("n", "<leader>w", "<cmd>w<CR>", { desc = "general save file", nowait = true 
 vim.api.nvim_set_keymap("i", "<C-s>", "<Esc>:w<CR>", { noremap = true, silent = true })
 -- Select All
 vim.api.nvim_set_keymap("n", "<C-a>", "ggVG", { silent = true })
-vim.keymap.del("i", "<C-h>")
-vim.keymap.del("i", "<C-l>")
-vim.keymap.del("i", "<C-j>")
-vim.keymap.del("i", "<C-k>")
-
+-- vim.keymap.del("i", "<C-h>")
+-- vim.keymap.del("i", "<C-l>")
+-- vim.keymap.del("i", "<C-j>")
+-- vim.keymap.del("i", "<C-k>")
+--
 map("i", "jk", "<ESC>")
 map("v", "<", "<gv")
 map("v", ">", ">gv")
 map("v", "p", 'p:let @+=@0<CR>:let @"=@0<CR>')
 
-map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
-map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
-map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
-
+-- map({ "n", "o", "x" }, "w", "<cmd>lua require('spider').motion('w')<CR>", { desc = "Spider-w" })
+-- map({ "n", "o", "x" }, "e", "<cmd>lua require('spider').motion('e')<CR>", { desc = "Spider-e" })
+-- map({ "n", "o", "x" }, "b", "<cmd>lua require('spider').motion('b')<CR>", { desc = "Spider-b" })
+--
 map("n", "<S-l>", function()
   require("nvchad.tabufline").next()
 end, { desc = "buffer goto next" })
@@ -40,12 +40,10 @@ map("n", "<S-h>", function()
 end, { desc = "buffer goto prev" })
 
 map("n", "<leader>c", "<cmd>:lua require('nvchad.tabufline').close_buffer()<CR>")
-map("n", "<leader>Go", "<cmd> DiffviewOpen <CR>")
-map("n", "<leader>Gc", "<cmd> DiffviewClose <CR>")
 map("n", "<leader>lg", "<cmd>:lua require('logsitter').log()<CR>")
 
 map("n", "<leader>fr", "<cmd> Lspsaga finder <CR>")
-map("n", "gj", function()
+map("n", "gl", function()
   vim.diagnostic.open_float()
 end, { desc = "Open diagnostic float" })
 
@@ -61,3 +59,17 @@ map("n", "g*", [[g*<Cmd>lua require('hlslens').start()<CR>]], kopts)
 map("n", "g#", [[g#<Cmd>lua require('hlslens').start()<CR>]], kopts)
 
 map("n", "<leader>re", "<CMD>RegexplainerShowPopup<CR>", { desc = "explain regex", remap = true, silent = true })
+map("n", "<leader>e", "<cmd>NvimTreeToggle<CR>", { desc = "Toggle NvimTree", nowait = true })
+-- Set up terminal mappings
+vim.api.nvim_create_autocmd("TermOpen", {
+  callback = function()
+    local opts = { noremap = true, silent = true, buffer = true }
+    -- Map <C-k> to move to the above buffer
+    vim.keymap.set("t", "<C-k>", [[<C-\><C-n><C-w>k]], opts)
+    -- Map <C-j> to move to the below buffer
+    vim.keymap.set("t", "<C-j>", [[<C-\><C-n><C-w>j]], opts)
+    -- Additional terminal navigation mappings (optional)
+    vim.keymap.set("t", "<C-h>", [[<C-\><C-n><C-w>h]], opts)
+    vim.keymap.set("t", "<C-l>", [[<C-\><C-n><C-w>l]], opts)
+  end,
+})

@@ -7,27 +7,3 @@
 # Credits
 
 1. Lazyvim starter https://github.com/LazyVim/sts nvchad's starter was inspired by Lazyvim's . It made a lot of things easier!
-
-# Prerequisite
-Nvim >= v0.10
-
-For linux users, if you install by `sudo apt install neovim`, please remove by `sudo apt remove neovim` and following this instructure:
-
-```
-curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
-sudo rm -rf /opt/nvim
-sudo tar -C /opt -xzf nvim-linux64.tar.gz
-```
-Then add this to your shell config (~/.bashrc, ~/.zshrc, ...):
-
-```
-export PATH="$PATH:/opt/nvim-linux64/bin"
-```
-Then, install some require libs
-```
-sudo apt-get install ripgrep 
-```
-
-```
-sudo apt install yazi
-```
