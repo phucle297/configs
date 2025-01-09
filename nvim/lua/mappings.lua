@@ -76,3 +76,10 @@ vim.api.nvim_create_autocmd("TermOpen", {
     vim.keymap.set("t", "<C-l>", [[<C-\><C-n><C-w>l]], opts)
   end,
 })
+-- Setup for leap
+vim.keymap.set({ "n", "x", "o" }, "ga", function()
+  require("leap.treesitter").select()
+end)
+
+-- Linewise.
+vim.keymap.set({ "n", "x", "o" }, "gA", 'V<cmd>lua require("leap.treesitter").select()<cr>')
